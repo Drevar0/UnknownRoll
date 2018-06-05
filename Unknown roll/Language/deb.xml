@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <General>
+    <Name>Debug</Name>
+    <ErrorVersion>0.00</ErrorVersion>
+  </General>
+  
+    
+  <Menu>
+    <!--Main menu-->
+    <General>
+      <IP>IP</IP>
+      <Port>Port</Port>
+      <Username>Username</Username>
+      <Password>Password</Password>
+      <Back>Indietro</Back>
+    </General>
+    
+    <Main>
+      <Exit>Esci dal gioco</Exit>
+      <Settings>Impostazioni</Settings>
+      <Credits>Crediti</Credits>
+      <Play>Gioca</Play>
+      <Editor>Editor</Editor>
+    </Main>
+    
+    
+    <Settings>
+      <SelectedLanguage>Lingua</SelectedLanguage>
+    </Settings>
+    
+    
+
+    <Play>
+      <DirectConnect>Connessione diretta</DirectConnect>
+      <Host>Ospita</Host>
+      <Join>Unisciti</Join>
+      <CreateServer>Crea il server</CreateServer>
+      <SavedServers>Server salvati</SavedServers>
+      <MaxPlayers>Max Player</MaxPlayers>
+    </Play>
+  
+    <Lobby>
+      <Info>Informazioni sulla campagna</Info>
+      <Players>Giocatori</Players>
+      <InfoCast>
+        <Creator>Nickname del creatore</Creator>
+        <CampaignVersion>Versione della campagna</CampaignVersion>
+      </InfoCast>
+      
+    </Lobby>
+  </Menu>
+
+
+  
+     <!--Error--> 
+  <Error>
+    <Debug>
+      <D001>Error</D001>                              <!--Errore generico utilizzato nelle fasi di debug per controlli eliminati in build stabili-->
+      <D002>Arguments exception</D002>
+      <D003>Elemento richiesto non istanziato</D003>
+    </Debug>
+    
+    
+    <General>
+      <G001>La lingua salvata nelle impostazioi non è presente su questo terminale, Scaricalo e aggiungilo nell'apposita cartella. Ritorno della lingua in Inglese</G001>
+      <G002>La lingua che si vuole salvare non è esistente all'interno della cartella di lingua, verranno lasciate immutate le impostazioni.</G002>
+      <G003>ID PopUp non definito o non trovato</G003>
+      <G004>Il testo richeisto non è presente nel file di lingua</G004>
+    </General>
+    
+    
+    <Menu>
+      <M001>Button destination not found</M001>       <!-- durante un collegamento tra due parti di menu non si trova la successiva pagina.-->
+      <M002>Arguments exception</M002>
+      <M003>Button or Text Name Error</M003>                  <!-- Errore nel nome del bottone (ci può essere uno spazio)-->
+      <M004>Closing Popup problem</M004>              <!-- Errore durante l'eliminazione del popup di errore-->
+      <Settings>
+        <S001>La lingua selezionata non è più esistente o non è stata trovata</S001>
+      </Settings>
+    </Menu>
+
+    <Network>
+      <N001>La porta richiesta non è utilizzabile</N001>
+      <N002>Errore durante la creazione del Server</N002>
+      <N003>Il server è già in esecuzione</N003>
+      <N004>Errore durante la creazione del client</N004>
+      <N005>Errore durante la chiusura del client</N005>
+      <N006>Il client è già in esecuzione</N006>
+      <N007>IP richiesto non valido</N007>
+      <N008>Errore durante l'esecuzione del client</N008>
+      <N009>Errore durante l'esecuzione del server</N009>
+      <N010>Username non valido o non è possibile accedere</N010>
+      <N011>Errore di comunicazione</N011>
+      <N012>L'utente si è disconnesso a causa di un errore</N012>
+      <N013>Pacchetto inconsistente</N013>
+      <N014>Codice Header Errato</N014>
+      <N015>Body inconsistente</N015>
+    </Network>
+    
+    <IO>  <!-- InputOutput Errors-->
+      <I001>the file you are trying to write already exists and you do not want to overwrite it </I001> <!--il file che si sta tentando di scrivere esiste già e non lo si vuole sovrascrivere -->
+      <I002>Il file o la directory di riferimento non esistono</I002>
+      
+    </IO>
+  </Error>
+</language>

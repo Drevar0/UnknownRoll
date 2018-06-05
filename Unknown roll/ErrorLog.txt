@@ -1,0 +1,125 @@
+00:05:20 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+
+00:05:51 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:05:52 AM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+UnityEngine.UnityException: SetActive can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x0027b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\IO\Settings.cs:423 
+  at Packets.Send_Packet (System.String Richiedente, System.String Errore) [0x000db] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\NetworkPacket.cs:67 
+  at Client.FirstContact () [0x0004a] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:124 
+00:25:49 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:26:00 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:26:00 AM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+System.Net.Sockets.SocketException: Argomento fornito non valido.
+
+  at System.Net.Sockets.Socket.get_LocalEndPoint () [0x00000] in <filename unknown>:0 
+  at Client.FirstContact () [0x00045] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:124 
+00:28:53 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:29:07 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:29:07 AM >> <color="red"> Network/N008 >> 0 >> Errore durante l'esecuzione del client Details: Error during the Client execution by SocketException.System.Net.Sockets.SocketException: Argomento fornito non valido.
+
+  at System.Net.Sockets.Socket.get_LocalEndPoint () [0x00000] in <filename unknown>:0 
+  at Client.Inizialize_Client () [0x0014f] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:108 
+  at Client.Run (System.Object Usefull) [0x0002a] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:54 
+00:31:30 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:31:41 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:31:41 AM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+UnityEngine.UnityException: SetActive can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x0027b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\IO\Settings.cs:423 
+  at Packets.Send_Packet (System.String Richiedente, System.String Errore) [0x000ad] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\NetworkPacket.cs:66 
+  at Client.FirstContact () [0x0004a] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:122 
+00:34:47 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:34:57 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:34:57 AM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+System.Net.Sockets.SocketException: Socket non connesso e indirizzo non fornito durante l'invio su un socket di datagramma che utilizza una chiamata sendto. Richiesta di invio o ricezione di dati annullata.
+
+  at System.Net.Sockets.Socket.get_RemoteEndPoint () [0x00000] in <filename unknown>:0 
+  at Client.FirstContact () [0x0005b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:121 
+00:37:18 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:37:18 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:37:18 AM >> <color="red"> Network/N013 >> 0 >> Header inconsistente Details:  (Receive)  > Retriving packets Failed System.ArgumentNullException: Argument cannot be null.
+Parameter name: buffer
+  at System.Net.Sockets.Socket.Receive (System.Byte[] buffer) [0x00000] in <filename unknown>:0 
+  at Packets.Receive_Packet (System.String Richiedente, Int32 Dimension) [0x00057] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\NetworkPacket.cs:97 
+00:37:18 AM >> <color="red"> Network/N015 >> 0 >> NoText Details: Dimensione del body errata (NetworkPacket => GetHeader) CatchSystem.NullReferenceException: Object reference not set to an instance of an object
+  at Packets.Get_Header () [0x00002] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\NetworkPacket.cs:145 
+00:37:18 AM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+UnityEngine.UnityException: SetActive can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x0027b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\IO\Settings.cs:423 
+  at Client.FirstContact () [0x001a8] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:150 
+00:44:33 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:44:33 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:44:33 AM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+UnityEngine.UnityException: SetActive can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x0027b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\IO\Settings.cs:423 
+  at Client.FirstContact () [0x00164] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:141 
+00:48:09 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:48:09 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:48:09 AM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+UnityEngine.UnityException: SetActive can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x0027b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\IO\Settings.cs:423 
+  at Client.FirstContact () [0x0016a] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:141 
+00:49:34 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:49:34 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:49:34 AM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+UnityEngine.UnityException: SetActive can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x0027b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\IO\Settings.cs:423 
+  at Client.FirstContact () [0x0016a] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:141 
+00:55:45 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:55:45 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:55:45 AM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+UnityEngine.UnityException: SetActive can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x0027b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\IO\Settings.cs:423 
+  at Client.FirstContact () [0x0016a] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:141 
+00:58:21 AM >> <color="red"> Network/N011 >> 0 >> Errore di comunicazione Details: Chiusura in corso (Server => Accepting_Client)System.Threading.ThreadAbortException: Thread was being aborted
+  at System.Net.Sockets.Socket.Accept () [0x00000] in <filename unknown>:0 
+  at Server.Accepting_Client () [0x00040] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Server.cs:129 
+00:58:47 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:58:47 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+00:58:47 AM >> <color="red"> Network/N015 >> 0 >> Body inconsistente Details: (Client)Codice First contact errato => Codice ricevuto:0
+01:02:59 AM >> <color="red"> Network/N011 >> 0 >> Errore di comunicazione Details: Chiusura in corso (Server => Accepting_Client)System.Threading.ThreadAbortException: Thread was being aborted
+  at System.Net.Sockets.Socket.Accept () [0x00000] in <filename unknown>:0 
+  at Server.Accepting_Client () [0x00040] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Server.cs:129 
+01:03:19 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+01:03:19 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+01:03:19 AM >> <color="red"> Network/N015 >> 0 >> Body inconsistente Details: (Client)Codice First contact errato => Codice ricevuto:0
+01:08:21 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+01:08:21 AM >> <color="yellow"> General/G003 >> 0 >> ID PopUp non definito o non trovato Details: CallPopUpByName => Name: PopUpDirectHost
+01:08:21 AM >> <color="red"> Network/N015 >> 0 >> Body inconsistente Details: Role selezionato non valido 5
+01:08:21 AM >> <color="yellow"> Network/N012 >> 0 >> L'utente si è disconnesso a causa di un errore Details: ( || 79.10.254.193:49580) (Server => SubThr) : UnityEngine.UnityException: SetActive can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x0027b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\IO\Settings.cs:423 
+  at Packets.Send_Packet (System.String Richiedente, System.String Errore) [0x000f4] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\NetworkPacket.cs:71 
+  at Server.SubThr (System.Object TempSocket) [0x00234] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Server.cs:243 
+01:08:21 AM >> <color="red"> Network/N013 >> 0 >> Pacchetto inconsistente Details: Dimensione Pacchetto errata, INSIDE
+01:08:21 AM >> <color="red"> Network/N015 >> 0 >> Body inconsistente Details: Dimensione del body errata (NetworkPacket => GetHeader) CatchSystem.NullReferenceException: Object reference not set to an instance of an object
+  at Packets.Get_Header () [0x00002] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\NetworkPacket.cs:143 
+01:08:21 AM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+UnityEngine.UnityException: SetActive can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:SetActive (bool)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x0027b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\IO\Settings.cs:423 
+  at Client.FirstContact () [0x001ae] in F:\work\lavori\UnKn\Sito\Unknown Roll\Git\Roleplay\Unknown roll\Assets\General Script\Network\Client.cs:150 
