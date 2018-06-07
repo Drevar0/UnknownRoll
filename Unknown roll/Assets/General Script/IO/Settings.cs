@@ -420,9 +420,9 @@ public class Settings : MonoBehaviour
                 //nel caso l'errore sia di gravità superiore a 2 viene generato un PopUp che sarà visualizzato dall'utente obbligatoriamente.
                 if (Level > 2)
                 {
-                    GameObject.FindGameObjectWithTag("Canvas").GetComponent<MenuHandler>().Cre // fare creazione popup e inserire intrinsicamente l'errore
-                    ErrorPopup.SetActive(true);
-                    ErrorPopupText.text += "\n" + string.Format("{0:HH:mm:ss tt}", DateTime.Now) + " >> " + ErrorColored + " >> " + ErrorFileVersion + " >> " + Retrive_InnerText(0, "language/Error/" + ErrorCode) + " Details: " + MoreDeatils;
+                    GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().CreatePopup("Settings => Error profiler (" + ErrorCode + ")", "error," + "\n" + string.Format("{0:HH:mm:ss tt}", DateTime.Now) + " >> " + ErrorColored + " >> " + ErrorFileVersion + " >> " + Retrive_InnerText(0, "language/Error/" + ErrorCode) + " Details: " + MoreDeatils, MainThread); // fare creazione popup e inserire intrinsicamente l'errore
+                    //ErrorPopup.SetActive(true);
+                    //ErrorPopupText.text += "\n" + string.Format("{0:HH:mm:ss tt}", DateTime.Now) + " >> " + ErrorColored + " >> " + ErrorFileVersion + " >> " + Retrive_InnerText(0, "language/Error/" + ErrorCode) + " Details: " + MoreDeatils;
                 }
                 InOut.Write_Into_File("ErrorLog.txt", TempError, false);
             }

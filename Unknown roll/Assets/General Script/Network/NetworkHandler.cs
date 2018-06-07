@@ -19,12 +19,10 @@ public class NetworkHandler : MonoBehaviour
 
 
     public bool ServerDebug = false;                //alla creazione del server la variabile prenderà questo valore
-    [SerializeField]private GameObject ServerPortOBJ;
+
 
     public bool ClientDebug = false;
     public string ClientName;
-    [SerializeField] private GameObject ClientIPOBJ;
-    [SerializeField] private GameObject ClientPortOBJ;
     
     [SerializeField] public List<Thread> ThreadList = new List<Thread>();
 
@@ -49,7 +47,7 @@ public class NetworkHandler : MonoBehaviour
 
 
         // Creazione Server
-
+        GameObject ServerPortOBJ = GameObject.FindGameObjectWithTag("PopupDirectHost").transform.Find("Panel/Host/Port/ServerPortInput").gameObject;
         //controllo se la richiesta avviene da console o da menu
         Int32.TryParse(Temp, out Port);
         if (Port != 0)
@@ -88,8 +86,7 @@ public class NetworkHandler : MonoBehaviour
             else
                 server.Creato = true;   
         }
-
-        GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().CreatePopup("(NetworkHandler => Create_Server)", "PopUpDirectHost,2",false);
+        
 
         //Server non creato, creazione in corso
         try
@@ -133,6 +130,9 @@ public class NetworkHandler : MonoBehaviour
 
     public void Create_Client(string Temp)
     {
+        GameObject ClientPortOBJ = GameObject.FindGameObjectWithTag("PopupDirectHost").transform.Find("Panel/Direct/Port/ClientPortInput").gameObject;
+        GameObject ClientIPOBJ = GameObject.FindGameObjectWithTag("PopupDirectHost").transform.Find("Panel/Direct/IP/ClientIPInput").gameObject;
+
         if (Temp.Split(':').Length == 2)
         {
             IP = Temp.Split(':')[0];
@@ -191,7 +191,7 @@ public class NetworkHandler : MonoBehaviour
 
 
 
-        GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().CreatePopup("(NetworkHandler => Create_Client)","PopUpDirectHost,2",false);
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().KillPopup("directhost");
         GameObject.FindGameObjectWithTag("Canvas").GetComponent<MenuHandler>().SwitchMenu("All,Lobby");
 
 

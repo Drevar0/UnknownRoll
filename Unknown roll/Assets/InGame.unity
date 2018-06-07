@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 15.8
+  m_fontSize: 13.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -828,7 +828,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 15.8
+  m_fontSize: 15.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -900,11 +900,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 219223888}
---- !u!1 &223970221 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1365711219152104, guid: 26d6bb3f152271147aceae50aa656c74,
-    type: 2}
-  m_PrefabInternal: {fileID: 1561869936}
 --- !u!1 &248982086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,15 +1066,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1951550244}
-        m_MethodName: CallPopUPByName
+      - m_Target: {fileID: 1951550247}
+        m_MethodName: CreatePopup
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: (MENU=> canvas > play > Panel > Host);PopUpDirectHost,1
+          m_StringArgument: (MENU=> canvas > play > Panel > Host);DirectHost,1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1698,7 +1693,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 49.3
+  m_fontSize: 41.55
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3136,11 +3131,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 847229468}
---- !u!224 &867835324 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-    type: 2}
-  m_PrefabInternal: {fileID: 1561869936}
 --- !u!1 &872897770
 GameObject:
   m_ObjectHideFlags: 0
@@ -3377,7 +3367,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1311993275}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.18679236
+  m_Size: 0.17820764
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3662,7 +3652,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 53.25
+  m_fontSize: 42.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4026,11 +4016,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &1244160992 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1274786254495756, guid: 26d6bb3f152271147aceae50aa656c74,
-    type: 2}
-  m_PrefabInternal: {fileID: 1561869936}
 --- !u!1 &1251192372
 GameObject:
   m_ObjectHideFlags: 0
@@ -5818,7 +5803,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1391649894}
-  - {fileID: 867835324}
   m_Father: {fileID: 1951550243}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5916,11 +5900,8 @@ MonoBehaviour:
   client: {fileID: 0}
   BufferSize: 256
   ServerDebug: 1
-  ServerPortOBJ: {fileID: 1750899153}
   ClientDebug: 1
   ClientName: NameNotDefined
-  ClientIPOBJ: {fileID: 223970221}
-  ClientPortOBJ: {fileID: 1244160992}
 --- !u!4 &1555257327
 Transform:
   m_ObjectHideFlags: 0
@@ -5991,190 +5972,6 @@ MonoBehaviour:
   Host: {fileID: 0}
   Buffersize: 0
   Shutdown: 0
---- !u!1001 &1561869936
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1526386050}
-    m_Modifications:
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224349724580227988, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114498959386953662, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114498959386953662, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1696827333936318, guid: 26d6bb3f152271147aceae50aa656c74, type: 2}
-      propertyPath: m_Name
-      value: PopUpDirectHost
-      objectReference: {fileID: 0}
-    - target: {fileID: 114430456862216928, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114430456862216928, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114143883619899786, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114143883619899786, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114762151516590316, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114762151516590316, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114005053354699898, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114005053354699898, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114505936615641558, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1555257326}
-    - target: {fileID: 114658228466093308, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1555257326}
-    - target: {fileID: 114710565229674950, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114710565229674950, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114545560385393654, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114545560385393654, guid: 26d6bb3f152271147aceae50aa656c74,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 26d6bb3f152271147aceae50aa656c74, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1571665807
 GameObject:
   m_ObjectHideFlags: 0
@@ -6453,11 +6250,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1738416042}
---- !u!1 &1750899153 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1758425159733538, guid: 26d6bb3f152271147aceae50aa656c74,
-    type: 2}
-  m_PrefabInternal: {fileID: 1561869936}
 --- !u!1 &1762149973
 GameObject:
   m_ObjectHideFlags: 0
@@ -7195,7 +6987,7 @@ GameObject:
   - component: {fileID: 1826317031}
   m_Layer: 5
   m_Name: PopUp
-  m_TagString: PopUp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7996,7 +7788,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d078fc24f4c8424e8c389f2b45d4425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  D: 0
   settings: {fileID: 1782332599}
+  InspectorPopupElement: {fileID: 1826317030}
   PopupList:
   - {fileID: 1567892038088452, guid: f7dd539c767a132438edc787069eccd3, type: 2}
   - {fileID: 1696827333936318, guid: 26d6bb3f152271147aceae50aa656c74, type: 2}
@@ -8250,7 +8044,7 @@ MonoBehaviour:
     spaceCount: 30
     wordCount: 24
     linkCount: 0
-    lineCount: 11
+    lineCount: 14
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -8359,7 +8153,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 15.8
+  m_fontSize: 15.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8513,7 +8307,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 56.45
+  m_fontSize: 53.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8828,7 +8622,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 15.8
+  m_fontSize: 15.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9077,8 +8871,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 122563655}
   m_HandleRect: {fileID: 122563654}
   m_Direction: 2
-  m_Value: 0.000000011106994
-  m_Size: 0.084133334
+  m_Value: 0.000000022120599
+  m_Size: 0.08026666
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9370,15 +9164,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1951550244}
-        m_MethodName: CallPopUPByName
+      - m_Target: {fileID: 1951550247}
+        m_MethodName: CreatePopup
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: (MENU=> canvas > play > Panel > DirectConnet);PopUpDirectHost,0
+          m_StringArgument: (MENU=> canvas > play > Panel > DirectConnet);DirectHost,0
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

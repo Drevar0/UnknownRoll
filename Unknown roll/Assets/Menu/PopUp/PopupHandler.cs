@@ -1,17 +1,43 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PopupHandler : MonoBehaviour
 {
+    public bool D;
     public Settings settings;
+    public GameObject InspectorPopupElement;
     public List<GameObject> PopupList;
-    public List<GameObject> ActivePopup;
+    public List<GameObject> ActivePopup;        
     public List<string> PopupRequests;
 
-    public void KillPopup ()
+    public void KillPopup (string ID)
     {
+        GameObject TempPopup = null;
+        lock (ActivePopup)
+        {
+            try
+            {
+                if (ActivePopup.Count != 0)
+                    TempPopup = ActivePopup.Find(T => T.GetComponent<GenericPopUp>().PopUpID.ToLowerInvariant().Equals(ID.ToLowerInvariant()));
+
+                if (TempPopup != null)  //se non esiste segnala altrimenti esegue il comando
+                {
+                    lock(ActivePopup)
+                        ActivePopup.Remove(TempPopup);
+                    Destroy(TempPopup);
+                }
+                else
+                    settings.Error_Profiler("G003", 0, "(PopupHandler => KillPopup) ID " + ID + " non è attualmente attivo o non esiste", 1, false);
+            }
+            catch (Exception e)
+            {
+                settings.Error_Profiler("G005", 0, "(PopupHandler => KillPopup) Tentativo di chiusura popup fallito: ID " + ID + " Errore: " + e , 5, false);
+            }
+        }
+        
 
     }
 
@@ -48,15 +74,17 @@ public class PopupHandler : MonoBehaviour
         string[] SubStrings = new string[5];
 
         //Controllo se all'interno della stringa sono presenti delle virgole, se si li splitto e li assegno al vettore, mettendo il primo in Name, essendo il nome del popUP
-        if (Name.IndexOf(',') >= 0)
+        if (Name.IndexOf(',') > 0)
             SubStrings = Name.Split(',');
+        else
+            SubStrings[0] = Name;
 
         // Guardo se esiste il popUP richiesto altrimenti segnalo l'errore
 
         GameObject Popup = PopupList.Find(T => T.GetComponent<GenericPopUp>().PopUpID.ToLower().Equals(SubStrings[0].ToLower()));
         if (Popup == null)
         {
-            settings.Error_Profiler("G003", 0, Caller + ": PopUp non trovato: (popupHandler => CreatePopup) => Name: " + SubStrings[0] + " Ricevuto: " + Name, 4, true);
+            settings.Error_Profiler("G003", 0, "(PopupHandler => CreatePopup)" + Caller + ": PopUp non trovato: (popupHandler => CreatePopup) => Name: " + SubStrings[0] + " Ricevuto: " + Name, 1, true);
             return;
         }
 
@@ -68,66 +96,85 @@ public class PopupHandler : MonoBehaviour
             case "error":      // nel suo caso bisogna semplicemente agggiungere il testo al pop up precedente perciò controlla se esiste e nel caso non fa nulla
                 lock (ActivePopup)
                 {
-                    GameObject TempPopup = null;
-                    if (ActivePopup.Count != 0)
-                        TempPopup = ActivePopup.Find(T => T.GetComponent<GenericPopUp>().PopUpID.ToLower().Equals(SubStrings[0].ToLower()));
-                    if (TempPopup == null)  //se non esiste lo istanzia altrimenti non fa nulla
+                    try
                     {
-                        Popup = Instantiate(Popup);
-                        ActivePopup.Add(Popup);
+                        GameObject TempPopup = null;
+                        TextMeshProUGUI ErrorText;
+                        if (ActivePopup.Count != 0)
+                            TempPopup = ActivePopup.Find(T => T.GetComponent<GenericPopUp>().PopUpID.ToLower().Equals(SubStrings[0].ToLower()));
+                        if (TempPopup == null)  //se non esiste lo istanzia altrimenti non fa nulla
+                        {
+                            Popup = Instantiate(Popup, InspectorPopupElement.transform);
+                            ActivePopup.Add(Popup);
+
+                            //ricavo il testo
+                            ErrorText = Popup.GetComponentInChildren<TextMeshProUGUI>();
+                            ErrorText.text = "";
+                        }
+                        else
+                            Popup = TempPopup;
+                        //aggiungo il testo (sempre se ve ne è uno)
+                        ErrorText = Popup.GetComponentInChildren<TextMeshProUGUI>();
+                        if (Name.IndexOf(',') > 0)  //controllo il quantitativo di virgole in name
+                        {
+                            if (!ErrorText.text.Equals("")) //se l'errore non è vuoto vado a capo
+                                ErrorText.text += "\n";
+                            for (int I = 1; I < SubStrings.Length; I++)     //aggiungo il testo e la virgola tolta fuorchè per il primo
+                            {
+                                if (I > 1)
+                                    ErrorText.text += "," + SubStrings[I];
+                                else
+                                    ErrorText.text += SubStrings[I];
+
+                            }
+                        }
+
+
                     }
-                    else
+                    catch(Exception e)
                     {
-                        TempPopup.
+                        settings.Error_Profiler("G005", 0, "Errore durante la creazione di un popup: " + e, 2, MainThread);
                     }
 
                 }
                 break;
+            case "directhost":
+                lock (ActivePopup)
+                {
+                    //controllo se è già stato inizializzato
+                    GameObject TempPopup = null;
+                    if (ActivePopup.Count != 0)
+                        TempPopup = ActivePopup.Find(T => T.GetComponent<GenericPopUp>().PopUpID.ToLower().Equals(SubStrings[0].ToLowerInvariant()));
+                    if (TempPopup == null)
+                    {
+                        Popup = Instantiate(Popup, InspectorPopupElement.transform);
+                        ActivePopup.Add(Popup);
+                    }
+                    else
+                        Popup = TempPopup;
+
+                    switch(SubStrings[1])
+                    {
+                        case "0":
+                            Popup.GetComponent<GenericPopUp>().Childrens[0].SetActive(true);
+                            Popup.GetComponent<GenericPopUp>().Childrens[1].SetActive(false);
+                            break;
+                        case "1":
+                            Popup.GetComponent<GenericPopUp>().Childrens[0].SetActive(false);
+                            Popup.GetComponent<GenericPopUp>().Childrens[1].SetActive(true);
+                            break;
+                        default:
+                            settings.Error_Profiler("M005",0,"",5,MainThread);
+                            break;
+                    }
+                }
+                break;
             default:
-                Popup = Instantiate(Popup);
+                Popup = Instantiate(Popup, InspectorPopupElement.transform);
                 ActivePopup.Add(Popup);
                 break;
 
         }
-
-        //gli resetto la posizione
-
-        Popup.transform.parent = GameObject.FindGameObjectWithTag("PopUp").transform;
-
-        Popup.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);  
-        Popup.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
-        Popup.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);  //width, height
-
-        //Eseguo uno switch sul PopUp appena avviato per capire se ha delle funzioni da eseguire durante l'avvio o delle modifiche da apportare in base alla chiamata
-        switch (Popup.GetComponent<GenericPopUp>().PopUpID)     //see also in GenericPopUP
-        {
-            case "PlayDirectHost":  //devo inserirli lo stato che si vuole avere attualmente sul popup
-                Popup.GetComponent<GenericPopUp>().DirectConnectOrHostGame = Convert.ToByte(SubStrings[1]);// Int32.Parse(SubStrings[1]);
-                break;
-        }
-
-        //GameObject PopUP = PopupList.Find(T => T.name.Equals(SubStrings[0]));
-        //if (PopUP == null && SubStrings[0].ToLower().Equals("all"))
-        //    lock (MenuElements)
-        //    {
-        //        foreach (GameObject T in MenuElements)
-        //            if (!T.name.Equals("Sfondo"))
-        //                T.SetActive(false);
-        //    }
-        //else
-        //{
-        //    settings.Error_Profiler("G003", 0, Caller + ": PopUp non trovato: (CallPopUpByName) => Name: " + SubStrings[0] + " Ricevuto: " + Name, 4, true);
-        //    return;
-        //}
-        //PopUP.SetActive(true);
-
-        //Eseguo uno switch sul PopUp appena avviato per capire se ha delle funzioni da eseguire durante l'avvio
-        //switch (PopUP.GetComponent<GenericPopUp>().PopUpID)     //see also in GenericPopUP
-        //{
-        //    case "PlayDirectHost":
-        //        PopUP.GetComponent<GenericPopUp>().DirectConnectOrHostGame = Convert.ToByte(SubStrings[1]);// Int32.Parse(SubStrings[1]);
-        //        break;
-        //}
     }
 
     void Update()
@@ -149,70 +196,3 @@ public class PopupHandler : MonoBehaviour
 }
 
 
-//public class OldPopupHAndler
-//{
-
-
-//    /// <summary>
-//    /// Serve per attivare un pop up dato il nome e nel caso delle identifidicazioni specifiche
-//    /// </summary>
-//    /// <param name="Name">nome del popup e relative informazioni divise da una virgola</param>
-//    public void CallPopUPByName(string Caller, string Name, bool MainThread)
-//    {
-//        //nel caso in cui non venga eseguito dal main thread verrebbe generata un eccezzione dati i ristretti comandi di cui dispone, perciò la manda a una lista gestita dal mainthread
-//        if (!MainThread)
-//        {
-//            PopUpRequest.Add(Caller + ";" + Name);
-//            return;
-//        }
-
-
-//        //Instazio un vettore di 5 elementi che potrei utilizzare in seguito (è necessario inizializzarla al fine i integrità del codice)
-//        string[] SubStrings = new string[5];
-
-//        //Controllo se all'interno della stringa sono presenti delle virgole, se si li splitto e li assegno al vettore, mettendo il primo in Name, essendo il nome del popUP
-//        if (Name.IndexOf(',') >= 0)
-//        {
-//            SubStrings = Name.Split(',');
-//        }
-
-//        // Guardo se esiste il popUP richiesto, se esiste lo attivo
-
-//        GameObject PopUP = MenuElements.Find(T => T.name.Equals(SubStrings[0]));
-//        if (PopUP == null && SubStrings[0].Equals("All"))
-//            lock (MenuElements)
-//            {
-//                foreach (GameObject T in MenuElements)
-//                    if (!T.name.Equals("Sfondo"))
-//                        T.SetActive(false);
-//            }
-//        else
-//        {
-//            settings.Error_Profiler("G003", 0, Caller + ": PopUp non trovato: (CallPopUpByName) => Name: " + SubStrings[0] + " Ricevuto: " + Name, 4, true);
-//            return;
-//        }
-//        PopUP.SetActive(true);
-
-//        //Eseguo uno switch sul PopUp appena avviato per capire se ha delle funzioni da eseguire durante l'avvio
-//        switch (PopUP.GetComponent<GenericPopUp>().PopUpID)     //see also in GenericPopUP
-//        {
-//            case "PlayDirectHost":
-//                PopUP.GetComponent<GenericPopUp>().DirectConnectOrHostGame = Convert.ToByte(SubStrings[1]);// Int32.Parse(SubStrings[1]);
-//                break;
-//        }
-//    }
-
-//    public void KillPopUp(string Name)
-//    {
-//        try
-//        {
-//            GameObject.FindWithTag("ErrorText").GetComponent<TextMeshProUGUI>().text = "";
-//            MenuElements.Where(obj => obj.name.Equals("ErrorPopup")).SingleOrDefault().SetActive(false);
-//        }
-//        catch (Exception e)
-//        {
-//            settings.Error_Profiler("M004", 0, "Pop up " + Name + " non found: " + e, 2, true);
-//        }
-
-//    }
-//}

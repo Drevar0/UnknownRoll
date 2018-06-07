@@ -8,7 +8,7 @@ TagManager:
   - ConsoleText
   - NetworkManager
   - Canvas
-  - PopUp
+  - PopupDirectHost
   layers:
   - Default
   - TransparentFX

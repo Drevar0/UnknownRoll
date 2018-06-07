@@ -2,61 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenericPopUp : MonoBehaviour {
-
-    public Settings settings;
-
-
+public class GenericPopUp : MonoBehaviour
+{
     public string PopUpID = "";                         //Utilizzata per capire la posizione e lo script che si vuole eseguire
 
-    [Space]
-    public byte DirectConnectOrHostGame = 2;            //utilizzata in Play per capire se il PopUP deve mostrare la connessione diretta (0) oppure l'host (1) o nessuno (2)
-    [Space]
-
-
+    public Settings settings;
     public List<GameObject> Childrens;                  //Utilizzato dalle funzioni che richiedono più children, la divisone dello scopo avviene tramite le variabili booleane
 
-    private void Start()
+    public void KillMePls()
     {
-        settings = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Settings>();
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().KillPopup(PopUpID);
     }
 
-
-    void Update ()
+    public void CreateServerClient(string T)
     {
-		switch (PopUpID)
+        switch (T)
         {
-            case "Error":
+            case "0":
+                GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<NetworkHandler>().Create_Server("NoPort");
+                KillMePls();
                 break;
-            case "PlayDirectHost":      //see also in MenuHandler.cs
-                if (DirectConnectOrHostGame == 0)
-                {
-                    Childrens[0].SetActive(true);
-                    Childrens[1].SetActive(false);
-                }
-                else if (DirectConnectOrHostGame == 1)
-                {
-                    Childrens[0].SetActive(false);
-                    Childrens[1].SetActive(true);
-                }
-                else
-                {
-                    Childrens[0].SetActive(false);
-                    Childrens[1].SetActive(false);
-
-                }
+            case "1":
+                GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<NetworkHandler>().Create_Client("NoClient");
+                KillMePls();
                 break;
             default:
-                settings.Error_Profiler("G003", 0, "GenericPopUP => " + PopUpID + "         Called By: " + gameObject.name, 4, true);
+                settings.Error_Profiler("D002", 0, "Tentativo di creazione server/client da tasti fallito causa codice errato: " + T, 5, true);
                 break;
         }
-	}
-
-    public void ClosePopUP ()
-    {
-        gameObject.SetActive(false);
+        
     }
-
-    
 
 }

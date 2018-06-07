@@ -67,6 +67,7 @@
       <G002>La lingua che si vuole salvare non è esistente all'interno della cartella di lingua, verranno lasciate immutate le impostazioni.</G002>
       <G003>ID PopUp non definito o non trovato</G003>
       <G004>Il testo richeisto non è presente nel file di lingua</G004>
+      <G005>Eccezione dentro un lock</G005>
     </General>
     
     
@@ -78,6 +79,7 @@
       <Settings>
         <S001>La lingua selezionata non è più esistente o non è stata trovata</S001>
       </Settings>
+      <M005>tentativo di avvio di popup per connessione diretta o host fallito a causa di un input errato</M005>
     </Menu>
 
     <Network>
