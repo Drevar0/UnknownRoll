@@ -13,7 +13,7 @@ public class PopupHandler : MonoBehaviour
     public List<GameObject> ActivePopup;        
     public List<string> PopupRequests;
 
-    public void KillPopup (string ID)
+    public void KillPopup (string ID,string Caller)
     {
         GameObject TempPopup = null;
         lock (ActivePopup)
@@ -30,11 +30,11 @@ public class PopupHandler : MonoBehaviour
                     Destroy(TempPopup);
                 }
                 else
-                    settings.Error_Profiler("G003", 0, "(PopupHandler => KillPopup) ID " + ID + " non è attualmente attivo o non esiste", 1, false);
+                    settings.Error_Profiler("G003", 0, Caller + "(PopupHandler => KillPopup) ID " + ID + " non è attualmente attivo o non esiste", 1, false);
             }
             catch (Exception e)
             {
-                settings.Error_Profiler("G005", 0, "(PopupHandler => KillPopup) Tentativo di chiusura popup fallito: ID " + ID + " Errore: " + e , 5, false);
+                settings.Error_Profiler("G005", 0, Caller + "(PopupHandler => KillPopup) Tentativo di chiusura popup fallito: ID " + ID + " Errore: " + e , 5, false);
             }
         }
         
@@ -158,6 +158,7 @@ public class PopupHandler : MonoBehaviour
                         case "0":
                             Popup.GetComponent<GenericPopUp>().Childrens[0].SetActive(true);
                             Popup.GetComponent<GenericPopUp>().Childrens[1].SetActive(false);
+
                             break;
                         case "1":
                             Popup.GetComponent<GenericPopUp>().Childrens[0].SetActive(false);

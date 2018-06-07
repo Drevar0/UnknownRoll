@@ -36,6 +36,25 @@ public class NetworkHandler : MonoBehaviour
     }
 
 
+
+
+
+
+
+
+
+// __                          
+/// _\ ___ _ ____ _____ _ __ 
+//\ \ / _ \ '__\ \ / / _ \ '__|
+//_\ \  __/ |   \ V /  __/ |   
+//\__/\___|_|    \_/ \___|_|   
+               
+        
+
+
+
+
+
     public void Create_Server(string Temp)
     {
 
@@ -121,12 +140,25 @@ public class NetworkHandler : MonoBehaviour
 
 
         //Creazione Client account Locale
-
-
-        //TODO: Ricordati di creare il client post creazione server (togli il commento e finisci mheuheeh)
         Create_Client("79.10.254.193:" + Port);
         
     }
+
+
+
+
+
+
+
+//   ___ _ _            _
+//  / __\ (_) ___ _ __ | |_
+// / /  | | |/ _ \ '_ \| __|
+/// /___| | |  __/ | | | |_
+//\____/|_|_|\___|_| |_|\__|
+
+
+
+
 
     public void Create_Client(string Temp)
     {
@@ -191,7 +223,7 @@ public class NetworkHandler : MonoBehaviour
 
 
 
-        GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().KillPopup("directhost");
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().KillPopup("directhost","(NetworkHandler => Create_Client)");
         GameObject.FindGameObjectWithTag("Canvas").GetComponent<MenuHandler>().SwitchMenu("All,Lobby");
 
 
@@ -233,6 +265,15 @@ public class NetworkHandler : MonoBehaviour
 
 
     }
+
+
+
+
+
+
+
+
+
 
     public void KillThreads()
     {

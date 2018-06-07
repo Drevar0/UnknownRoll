@@ -8,10 +8,11 @@ public class GenericPopUp : MonoBehaviour
 
     public Settings settings;
     public List<GameObject> Childrens;                  //Utilizzato dalle funzioni che richiedono più children, la divisone dello scopo avviene tramite le variabili booleane
+    
 
     public void KillMePls()
     {
-        GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().KillPopup(PopUpID);
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().KillPopup(PopUpID, ("(GenericPopup => KillMePls => " + gameObject.name + ")"));
     }
 
     public void CreateServerClient(string T)
@@ -20,11 +21,9 @@ public class GenericPopUp : MonoBehaviour
         {
             case "0":
                 GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<NetworkHandler>().Create_Server("NoPort");
-                KillMePls();
                 break;
             case "1":
                 GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<NetworkHandler>().Create_Client("NoClient");
-                KillMePls();
                 break;
             default:
                 settings.Error_Profiler("D002", 0, "Tentativo di creazione server/client da tasti fallito causa codice errato: " + T, 5, true);
