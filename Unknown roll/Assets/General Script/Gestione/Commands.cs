@@ -61,9 +61,8 @@ public class Commands : MonoBehaviour
 
 
 
-                case "popup":
-                    GameObject.Find("Canvas").GetComponent<MenuHandler>().MenuElements.Where(obj => obj.name.Equals("ErrorPopup")).SingleOrDefault().SetActive(true);
-                    GameObject.FindWithTag("ErrorText").GetComponent<TextMeshProUGUI>().text += '\n' + Comando[1];
+                case "errorpopup":
+                    GameObject.Find("Canvas").GetComponent<PopupHandler>().CreatePopup("Console", "Error,"+ Comando[1], true);
                     break;
 
 
@@ -88,6 +87,5 @@ public class Commands : MonoBehaviour
 
     public void ActualDebug ()
     {
-
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class MenuHandler : MonoBehaviour
 {
-    private Settings settings;              
+    public Settings settings;              
     public List<GameObject> MenuElements;          //lista che comprende tutte le schede del menu
     private Commands DoCommand = new Commands();
     public GameObject ConsoleOBJ;
@@ -62,6 +62,10 @@ public class MenuHandler : MonoBehaviour
 
             ConsoleOBJ.transform.Find("ConsoleInput/Text").GetComponent<Text>().text = "";
         }
+
+
+
+        
     }
 
     public void AddMenuItem (GameObject Item)
@@ -71,6 +75,10 @@ public class MenuHandler : MonoBehaviour
                 MenuElements.Add(Item);
     }
 
+    /// <summary>
+    /// Gestisce i movimenti all'interno di un menu annidiato
+    /// </summary>
+    /// <param name="Temp"></param>
     public void SwitchMenu (string Temp)
     {
         try
@@ -115,68 +123,15 @@ public class MenuHandler : MonoBehaviour
         {
             settings.Error_Profiler("D001", 0, Temp + e,2, true);
         }
-    }               //Gestisce i movimenti all'interno di un menu annidiato
+    }               
     
 
-    /// <summary>
-    /// Serve per attivare un pop up dato il nome e nel caso delle identifidicazioni specifiche
-    /// </summary>
-    /// <param name="Name">nome del popup e relative informazioni divise da una virgola</param>
-    public void CallPopUPByName(string Name)
-    {
-        //Instazio un vettore di 5 elementi che potrei utilizzare in seguito (è necessario inizializzarla al fine i integrità del codice)
-        string[] SubStrings = new string[5];
 
-        //Controllo se all'interno della stringa sono presenti delle virgole, se si li splitto e li assegno al vettore, mettendo il primo in Name, essendo il nome del popUP
-        if (Name.IndexOf(',') >= 0)
-        {
-            SubStrings = Name.Split(',');
-            Name = SubStrings[0];
-        }
 
-        // Guardo se esiste il popUP richiesto, se esiste lo attivo
-
-        GameObject PopUP = MenuElements.Find(T => T.name.Equals(Name));
-        if (PopUP == null && Name.Equals("All"))
-            lock (MenuElements)
-            {
-                foreach (GameObject T in MenuElements)
-                    if (!T.name.Equals("Sfondo"))
-                        T.SetActive(false);
-            }
-        else
-        {
-            settings.Error_Profiler("G003", 0, "CallPopUpByName => Name: " + Name, 4, true);
-            return;
-        }
-        PopUP.SetActive(true);
-
-        //Eseguo uno switch sul PopUp appena avviato per capire se ha delle funzioni da eseguire durante l'avvio
-        switch (PopUP.GetComponent<GenericPopUp>().PopUpID)     //see also in GenericPopUP
-        {
-            case "PlayDirectHost":
-                PopUP.GetComponent<GenericPopUp>().DirectConnectOrHostGame = Int32.Parse(SubStrings[1]);
-                break;
-        }
-    }
-
-    public void KillPopUp (string Name)
-    {
-        try
-        {
-            GameObject.FindWithTag("ErrorText").GetComponent<TextMeshProUGUI>().text = "";
-            MenuElements.Where(obj => obj.name.Equals("ErrorPopup")).SingleOrDefault().SetActive(false);
-        }
-        catch(Exception e)
-        {
-            settings.Error_Profiler("M004", 0, "Pop up " + Name +" non found: " + e, 2, true);
-        }
-
-    }
 
     public void KillApllication()
     {
-        GameObject.FindGameObjectWithTag("NewtorkHandler").GetComponent<NetworkHandler>().KillThreads();
+        GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<NetworkHandler>().KillThreads();
         Application.Quit();
     }
 }

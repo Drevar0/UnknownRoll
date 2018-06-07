@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class GenericPopUp : MonoBehaviour {
 
-    private Settings settings;
+    public Settings settings;
 
 
     public string PopUpID = "";                         //Utilizzata per capire la posizione e lo script che si vuole eseguire
-    public int DirectConnectOrHostGame = 2;        //utilizzata in Play per capire se il PopUP deve mostrare la connessione diretta (0) oppure l'host (1) o nessuno (2)
+
+    [Space]
+    public byte DirectConnectOrHostGame = 2;            //utilizzata in Play per capire se il PopUP deve mostrare la connessione diretta (0) oppure l'host (1) o nessuno (2)
+    [Space]
 
 
     public List<GameObject> Childrens;                  //Utilizzato dalle funzioni che richiedono più children, la divisone dello scopo avviene tramite le variabili booleane
 
-
-
-    void Start ()
+    private void Start()
     {
         settings = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Settings>();
-	}
-	
-	
-	void Update ()
+    }
+
+
+    void Update ()
     {
 		switch (PopUpID)
         {
@@ -55,5 +56,7 @@ public class GenericPopUp : MonoBehaviour {
     {
         gameObject.SetActive(false);
     }
+
+    
 
 }

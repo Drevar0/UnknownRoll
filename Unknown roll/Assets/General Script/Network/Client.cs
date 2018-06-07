@@ -274,7 +274,7 @@ public class Client : MonoBehaviour
             }
             else
             {
-                settings.Error_Profiler("N011", 0, "Chiusura in corso (Client => Comunicazione)", 5, false);
+                settings.Error_Profiler("N011", 0, "Chiusura in corso (Client => Comunicazione) " + e, 5, false);
                 Shutdown_Client("Client => Comunicazione");
             }
         }

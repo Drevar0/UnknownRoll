@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -89,7 +89,7 @@ public class NetworkHandler : MonoBehaviour
                 server.Creato = true;   
         }
 
-        GameObject.FindGameObjectWithTag("Canvas").GetComponent<MenuHandler>().CallPopUPByName("PopUpDirectHost,2");
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().CreatePopup("(NetworkHandler => Create_Server)", "PopUpDirectHost,2",false);
 
         //Server non creato, creazione in corso
         try
@@ -191,7 +191,7 @@ public class NetworkHandler : MonoBehaviour
 
 
 
-        GameObject.FindGameObjectWithTag("Canvas").GetComponent<MenuHandler>().CallPopUPByName("PopUpDirectHost,2");
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().CreatePopup("(NetworkHandler => Create_Client)","PopUpDirectHost,2",false);
         GameObject.FindGameObjectWithTag("Canvas").GetComponent<MenuHandler>().SwitchMenu("All,Lobby");
 
 
