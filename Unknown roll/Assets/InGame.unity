@@ -5892,7 +5892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fb2381cdedfcb42952248b9337583a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NetworkHandlerDebug: 1
+  NetworkHandlerDebug: 0
   IP: 
   Port: 0
   lobby: {fileID: 0}
@@ -5901,7 +5901,7 @@ MonoBehaviour:
   BufferSize: 256
   ServerDebug: 1
   ClientDebug: 1
-  ClientName: NameNotDefined
+  ClientName: ClientName
 --- !u!4 &1555257327
 Transform:
   m_ObjectHideFlags: 0
@@ -6757,8 +6757,6 @@ MonoBehaviour:
   LanguageList: []
   Language: 
   ConsoleText: {fileID: 1776712946}
-  ErrorPopup: {fileID: 0}
-  ErrorPopupText: {fileID: 0}
 --- !u!1 &1785991818
 GameObject:
   m_ObjectHideFlags: 0

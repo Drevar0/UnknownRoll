@@ -354,8 +354,6 @@ public class Settings : MonoBehaviour
         */
     public TextMeshProUGUI ConsoleText;                          //Variabile per riferirsi alla TextArea presente nella console
     private List<string> Console_TextToAdd = new List<string>();
-    public GameObject ErrorPopup;
-    public TextMeshProUGUI ErrorPopupText;
 
     public void Error_Profiler(string ErrorCode,float ErrorFileVersion, string MoreDeatils,int Level,bool MainThread)  //Errorcode contiene il codice di errore, errorfileversion indica la versione del file di errore a cui fa riferimento il codice quando è stato scritto (prevenzione futuri errori), Level indica il livello di errore, 0 = ignorabile
     {

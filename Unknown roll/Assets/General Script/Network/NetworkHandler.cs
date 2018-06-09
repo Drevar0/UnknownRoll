@@ -38,8 +38,14 @@ public class NetworkHandler : MonoBehaviour
 
 
 
-
-
+    
+    private GameObject RetriveGameObject(string TagName)
+    {
+        GameObject[] TempGameObjects = GameObject.FindGameObjectsWithTag(TagName);
+        if (TempGameObjects.Length == 1)
+            return TempGameObjects[0];
+        return null;
+    }
 
 
 
@@ -66,16 +72,20 @@ public class NetworkHandler : MonoBehaviour
 
 
         // Creazione Server
-        GameObject ServerPortOBJ = GameObject.FindGameObjectWithTag("PopupDirectHost").transform.Find("Panel/Host/Port/ServerPortInput").gameObject;
+       
         //controllo se la richiesta avviene da console o da menu
         Int32.TryParse(Temp, out Port);
         if (Port != 0)
             goto PortCheck;         // se avviene da console vado dierttamente a portCheck, altrimenti prendo i dati che mi interessano
         //vado a prendere la porta dall'input
+        GameObject ServerPortOBJ = RetriveGameObject("PopupDirectHost");
+        if (ServerPortOBJ != null)
+            ServerPortOBJ = ServerPortOBJ.transform.Find("Panel/Host/Port/ServerPortInput").gameObject;
+
         if (ServerPortOBJ.activeSelf)
             Int32.TryParse(ServerPortOBJ.GetComponent<TMP_InputField>().text, out Port);
         else
-            settings.Error_Profiler("D001", 0, "stai cercando di avviare il server senza che l'input box sia raggiungibile (NetworkHandler => CreateServer())", 2, false);
+            settings.Error_Profiler("D001", 0, "stai cercando di avviare il server senza che l'input box sia attualmente attivo (NetworkHandler => CreateServer())", 2, false);
 
         
 
@@ -162,8 +172,13 @@ public class NetworkHandler : MonoBehaviour
 
     public void Create_Client(string Temp)
     {
-        GameObject ClientPortOBJ = GameObject.FindGameObjectWithTag("PopupDirectHost").transform.Find("Panel/Direct/Port/ClientPortInput").gameObject;
-        GameObject ClientIPOBJ = GameObject.FindGameObjectWithTag("PopupDirectHost").transform.Find("Panel/Direct/IP/ClientIPInput").gameObject;
+        GameObject ClientPortOBJ = RetriveGameObject("PopupDirectHost");
+        GameObject ClientIPOBJ = RetriveGameObject("PopupDirectHost");
+        if (ClientIPOBJ != null && ClientPortOBJ != null)
+        {
+            ClientPortOBJ = ClientPortOBJ.transform.Find("Panel/Direct/Port/ClientPortInput").gameObject;
+            ClientIPOBJ = ClientIPOBJ.transform.Find("Panel/Direct/IP/ClientIPInput").gameObject;
+        }
 
         if (Temp.Split(':').Length == 2)
         {
@@ -222,7 +237,7 @@ public class NetworkHandler : MonoBehaviour
         }
 
 
-
+        
         GameObject.FindGameObjectWithTag("Canvas").GetComponent<PopupHandler>().KillPopup("directhost","(NetworkHandler => Create_Client)");
         GameObject.FindGameObjectWithTag("Canvas").GetComponent<MenuHandler>().SwitchMenu("All,Lobby");
 
@@ -240,7 +255,7 @@ public class NetworkHandler : MonoBehaviour
 
 
             Thread ThreadClient = new Thread(() => client.Run("nothing"));
-            ThreadClient.Name = "Client";
+
 
             lock (ThreadList)
             {
