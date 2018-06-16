@@ -17,7 +17,7 @@ public class CameraOrbit : MonoBehaviour
     
 
 
-    public bool CameraDisabled = false;
+    public bool RotationCameraDisabled = false;
 
 
     // Use this for initialization
@@ -32,10 +32,13 @@ public class CameraOrbit : MonoBehaviour
     void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
-            CameraDisabled = !CameraDisabled;
+            RotationCameraDisabled = !RotationCameraDisabled;
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+            RotationCameraDisabled = !RotationCameraDisabled;
 
 
-        if (!CameraDisabled && Input.GetMouseButton(1))
+
+        if (!RotationCameraDisabled && Input.GetMouseButton(1))
         {
             //Rotation of the Camera based on Mouse Coordinates
             if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
