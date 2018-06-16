@@ -1,0 +1,3 @@
+Idee:
+
+-prememendo un tasto il tuo personaggio guarderà nella direzione del tuo mouse
