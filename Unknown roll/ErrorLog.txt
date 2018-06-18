@@ -522,3 +522,23 @@ System.Net.Sockets.SocketException: Socket non connesso e indirizzo non fornito 
   at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x0031a] in F:\work\lavori\UnKn\Sito\Unknown Roll\Gitkraken\UnknownRoll\Unknown roll\Assets\General Script\IO\Settings.cs:427 
   at Client.FirstContact () [0x0025c] in F:\work\lavori\UnKn\Sito\Unknown Roll\Gitkraken\UnknownRoll\Unknown roll\Assets\General Script\Network\Client.cs:167 
   at Client.Run (System.Object Usefull) [0x0003b] in F:\work\lavori\UnKn\Sito\Unknown Roll\Gitkraken\UnknownRoll\Unknown roll\Assets\General Script\Network\Client.cs:56 
+14:50:45 PM >> <color="red"> Network/N004 >> 0 >> Errore durante la creazione del client Details: NetworkHandler: System.NullReferenceException: Object reference not set to an instance of an object
+  at NetworkHandler.Create_Client (System.String Temp) [0x00394] in F:\work\lavori\UnKn\Sito\Unknown Roll\Gitkraken\UnknownRoll\Unknown roll\Assets\General Script\Network\NetworkHandler.cs:266 
+14:50:45 PM >> <color="red"> Network/N015 >> 0 >> Body inconsistente Details: Role selezionato non valido 5
+14:50:45 PM >> <color="yellow"> Network/N012 >> 0 >> L'utente si è disconnesso a causa di un errore Details: ( || 79.10.254.193:52222) (Server => SubThr) : UnityEngine.UnityException: FindGameObjectWithTag can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:FindGameObjectWithTag (string)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x00279] in F:\work\lavori\UnKn\Sito\Unknown Roll\Gitkraken\UnknownRoll\Unknown roll\Assets\General Script\IO\Settings.cs:421 
+  at Packets.Send_Packet (System.String Richiedente, System.String Errore) [0x000f4] in F:\work\lavori\UnKn\Sito\Unknown Roll\Gitkraken\UnknownRoll\Unknown roll\Assets\General Script\Network\NetworkPacket.cs:71 
+  at Server.SubThr (System.Object TempSocket) [0x00234] in F:\work\lavori\UnKn\Sito\Unknown Roll\Gitkraken\UnknownRoll\Unknown roll\Assets\General Script\Network\Server.cs:253 
+14:50:45 PM >> <color="red"> Network/N013 >> 0 >> Pacchetto inconsistente Details: Dimensione Pacchetto errata, INSIDE
+14:50:45 PM >> <color="red"> Network/N015 >> 0 >> Body inconsistente Details: Dimensione del body errata (NetworkPacket => GetHeader) CatchSystem.NullReferenceException: Object reference not set to an instance of an object
+  at Packets.Get_Header () [0x00002] in F:\work\lavori\UnKn\Sito\Unknown Roll\Gitkraken\UnknownRoll\Unknown roll\Assets\General Script\Network\NetworkPacket.cs:143 
+14:50:45 PM >> <color="red"> Network/N010 >> 0 >> Username non valido o non è possibile accedere Details: Errore nell'inizializzazione
+UnityEngine.UnityException: FindGameObjectWithTag can only be called from the main thread.
+Constructors and field initializers will be executed from the loading thread when loading a scene.
+Don't use this function in the constructor or field initializers, instead move initialization code to the Awake or Start function.
+  at (wrapper managed-to-native) UnityEngine.GameObject:FindGameObjectWithTag (string)
+  at Settings.Error_Profiler (System.String ErrorCode, Single ErrorFileVersion, System.String MoreDeatils, Int32 Level, Boolean MainThread) [0x00279] in F:\work\lavori\UnKn\Sito\Unknown Roll\Gitkraken\UnknownRoll\Unknown roll\Assets\General Script\IO\Settings.cs:421 
+  at Client.FirstContact () [0x001ae] in F:\work\lavori\UnKn\Sito\Unknown Roll\Gitkraken\UnknownRoll\Unknown roll\Assets\General Script\Network\Client.cs:150 
